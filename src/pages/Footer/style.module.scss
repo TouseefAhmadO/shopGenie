@@ -1,0 +1,81 @@
+.mainContainer {
+    background-color: #f6f6f8;
+    padding: 80px 0px;
+
+    @media (max-width: 1164px) {
+        padding: 30px 0px;
+    }
+
+    .containerStyle {
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+
+        .copyRightStyle {
+            width: 20%;
+            text-align: left;
+            align-self: center;
+            padding-bottom: 20px;
+
+            h1 {
+                margin-bottom: 8px;
+            }
+            p {
+                font-size: 16px;
+                color: #313131;
+                margin-bottom: 4px;
+                line-height: 20px;
+                padding-right: 80px;
+            }
+            @media (max-width: 1164px) {
+                width: 100%;
+                text-align: center;
+                p {
+                    padding-right: 0px;
+                }
+            }
+        }
+        .footerContainer {
+            text-align: left;
+            width: 20%;
+            padding-bottom: 20px;
+            @media (max-width: 1164px) {
+                width: 40%;
+            }
+            h1 {
+                color: #313131;
+                font-size: 16px;
+                font-weight: 500;
+                line-height: 1;
+                margin-bottom: 16px;
+            }
+            a {
+                color: #5d5d5d;
+                font-size: 14px;
+                font-weight: 500;
+                margin-bottom: 12px;
+                display: block;
+                text-decoration: none;
+                cursor: pointer;
+                &:hover {
+                    color: #a749ff;
+                }
+            }
+            p {
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 24px;
+                color: #7a7a7a;
+            }
+            button {
+                color: #313131;
+                text-decoration: underline;
+                padding: 5px 0px;
+                display: block;
+                &:hover {
+                    color: #a749ff;
+                }
+            }
+        }
+    }
+}
