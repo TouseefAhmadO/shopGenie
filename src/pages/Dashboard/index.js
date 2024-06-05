@@ -6,10 +6,11 @@ import { useNavigate } from 'react-router-dom'
 import { constRoute } from '../../utility/constRoute'
 import shopping from '../../assets/shopping.png'
 import shopping1 from '../../assets/shopping1.png'
+import { DocTitle } from '../../utility/docTitle'
 
 const Dashboard = () => {
-
     const navigation = useNavigate()
+    document.title = DocTitle.dashboard;
 
     const carouselData = [
         {
@@ -51,9 +52,9 @@ const Dashboard = () => {
             <Carousel
                 navButtonsAlwaysVisible
                 navButtonsProps={{
-                    style:{
-                        background:'transparent',
-                        color:"gray",
+                    style: {
+                        background: 'transparent',
+                        color: "gray",
                     }
                 }}
                 indicators={false}
