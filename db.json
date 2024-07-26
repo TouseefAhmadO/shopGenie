@@ -1,0 +1,116 @@
+{
+    "products": [
+        {
+            "title": "Lorem ipsum fashion jens jacket",
+            "price": 35.5,
+            "rating": 3,
+            "new_arrival": true,
+            "discount": 20,
+            "images": [
+                "women.jpg",
+                "women0.jpg",
+                "women1.jpg",
+                "women2.jpg",
+                "women3.jpg"
+            ]
+        },
+        {
+            "title": "Lorem ipsum fashion jacket",
+            "price": 55.8,
+            "rating": 5,
+            "new_arrival": true,
+            "discount": 20,
+            "images": [
+                "women4.jpg",
+                "women5.jpg",
+                "women6.jpg",
+                "women7.jpg",
+                "women0.jpg"
+            ]
+        },
+        {
+            "title": "Lorem ipsum fashion female top",
+            "price": 21.6,
+            "rating": 2,
+            "new_arrival": true,
+            "discount": 20,
+            "images": [
+                "women1.jpg",
+                "women.jpg",
+                "women2.jpg",
+                "women0.jpg",
+                "women3.jpg"
+            ]
+        },
+        {
+            "title": "Lorem ipsum fashion female coat",
+            "price": 46.1,
+            "rating": 4,
+            "new_arrival": true,
+            "discount": 20,
+            "images": [
+                "women7.jpg",
+                "women5.jpg",
+                "women4.jpg",
+                "women6.jpg",
+                "women0.jpg"
+            ]
+        },
+        {
+            "title": "Lorem ipsum fashion jens coat",
+            "price": 24.2,
+            "rating": 3,
+            "new_arrival": true,
+            "discount": 20,
+            "images": [
+                "women2.jpg",
+                "women1.jpg",
+                "women.jpg",
+                "women0.jpg",
+                "women3.jpg"
+            ]
+        },
+        {
+            "title": "Lorem ipsum fashion jens coat",
+            "price": 24.2,
+            "rating": 3,
+            "new_arrival": true,
+            "discount": 20,
+            "images": [
+                "women3.jpg",
+                "women.jpg",
+                "women2.jpg",
+                "women1.jpg",
+                "women0.jpg"
+            ]
+        },
+        {
+            "title": "Lorem ipsum fashion jens coat",
+            "price": 24.2,
+            "rating": 3,
+            "new_arrival": true,
+            "discount": 20,
+            "images": [
+                "women5.jpg",
+                "women4.jpg",
+                "women7.jpg",
+                "women6.jpg",
+                "women0.jpg"
+            ]
+        },
+        {
+            "title": "Lorem ipsum fashion jens coat",
+            "price": 24.2,
+            "rating": 3,
+            "new_arrival": true,
+            "discount": 20,
+            "images": [
+                "women6.jpg",
+                "women4.jpg",
+                "women7.jpg",
+                "women5.jpg",
+                "women0.jpg"
+            ]
+        }
+    ]
+}

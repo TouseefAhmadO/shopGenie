@@ -1,68 +1,115 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import style from './style.module.scss'
-import Carousel from 'react-material-ui-carousel'
-import { Button, Container } from '@mui/material'
-import { useNavigate } from 'react-router-dom'
-import { constRoute } from '../../utility/constRoute'
-import shopping from '../../assets/shopping.png'
-import shopping1 from '../../assets/shopping1.png'
 import { DocTitle } from '../../utility/docTitle'
+import DashboardCarousel from './DashboardCarousel'
+import LocalShippingOutlinedIcon from '@mui/icons-material/LocalShippingOutlined';
+import PaidOutlinedIcon from '@mui/icons-material/PaidOutlined';
+import StarsOutlinedIcon from '@mui/icons-material/StarsOutlined';
+import RotateRightOutlinedIcon from '@mui/icons-material/RotateRightOutlined';
+import { Container } from '@mui/material';
+import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { getProducts } from '../Redux/actions';
 
 const Dashboard = () => {
-    const navigation = useNavigate()
     document.title = DocTitle.dashboard;
 
-    const carouselData = [
+    const [dealValue, setDealValue] = useState(0)
+    const { products } = useSelector(state => state.ProductReducer)
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(getProducts())
+    }, [])
+
+    const ServicesItem = [
         {
-            name: "Smart Products",
-            description: "Winter Offer 2024 Collection",
-            img: shopping
+            img: <LocalShippingOutlinedIcon />,
+            title: "Free Shipping",
+            des: "Free shipping on all order"
         },
         {
-            name: "Smart Products",
-            description: "Summer Offer 2024 Collection",
-            img: shopping1
-        }
+            img: <RotateRightOutlinedIcon />,
+            title: "Support 24/7",
+            des: "Free shipping on all order"
+        },
+        {
+            img: <PaidOutlinedIcon />,
+            title: "Money Return",
+            des: "Free shipping on all order"
+        },
+        {
+            img: <StarsOutlinedIcon />,
+            title: "Order Discount",
+            des: "Free shipping on all order"
+        },
     ]
 
-    const CarouselItem = (props) => {
-        return (
-            <div className={style.carouselContainer}>
-                <Container maxWidth="lg" className={style.carouselItemContainer}>
-                    <div className={style.contentStyle}>
-                        <h1>{props?.item?.name}</h1>
-                        <p>{props.item.description}</p>
-                        <Button
-                            className={style.btnStyle}
-                            onClick={() => navigation(constRoute.collection)}
-                        >
-                            Shop Now
-                        </Button>
-                    </div>
-                    <div className={style.pngContainer}>
-                        <img src={props.item.img} height="100%" width="100%" />
-                    </div>
-                </Container>
-            </div>
-        )
+    const DealItems = ['New Arrivals', 'Best Sellers', 'Sale Items']
+
+    const HandleDealClick = (idx) => {
+        setDealValue(idx)
     }
 
     return (
-        <div>
-            <Carousel
-                navButtonsAlwaysVisible
-                navButtonsProps={{
-                    style: {
-                        background: 'transparent',
-                        color: "gray",
-                    }
-                }}
-                indicators={false}
-            >
-                {
-                    carouselData.map((item, i) => <CarouselItem key={i} item={item} />)
-                }
-            </Carousel>
+        <div className={style.mainContainer}>
+            <DashboardCarousel />
+            <Container maxWidth="lg">
+                <div className={style.servicesContainer}>
+                    {ServicesItem?.map((item, index) => {
+                        return (
+                            <div key={index} className={style.ServicesItemStyle}>
+                                <div style={{ height: "70px", width: "70px" }}>{item?.img}</div>
+                                <div>
+                                    <h1>{item?.title}</h1>
+                                    <h2>{item?.des}</h2>
+                                </div>
+                            </div>
+                        )
+                    })}
+                </div>
+                <h1 className={style.dealTitle}>
+                    ______ DAILY DEALS! ______
+                </h1>
+                <div className={style.dealsContainer}>
+                    {DealItems?.map((item, index) => {
+                        return (
+                            <h2
+                                style={{
+                                    color: dealValue === index ? "black" : "#555",
+                                }}
+                                key={index}
+                                onClick={() => HandleDealClick(index)}
+                            > {item}</h2>
+                        )
+                    })}
+                </div>
+                <div className={style.productMainContainer}>
+                    {products?.length &&
+                        products?.map((item, index) => {
+                            return (
+                                <div key={index} className={style.productContainer}>
+                                    <div className={style.productInnerContainer}>
+                                        <div className={style.productImg}>
+                                            <img
+                                                className={style.frontImg}
+                                                src={item?.images?.length &&
+                                                    require(`../../assets/products/${item?.images[0]}`)}
+                                            />
+                                            <img
+                                                className={style.backImg}
+                                                src={item?.images?.length &&
+                                                    require(`../../assets/products/${item?.images[1]}`)}
+                                            />
+                                        </div>
+                                        <h1 className={style.productTitle}>{item?.title}</h1>
+                                        <h2 className={style.productPrice}>{item?.price}</h2>
+                                    </div>
+                                </div>
+                            )
+                        })}
+                </div>
+            </Container>
         </div>
     )
 }

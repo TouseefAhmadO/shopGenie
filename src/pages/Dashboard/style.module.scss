@@ -1,53 +1,176 @@
-.carouselContainer {
-    background-color: #f0e0ff;
-    height: 700px;
-    display: flex;
-    align-items: center;
-    .carouselItemContainer {
+.mainContainer {
+    .carouselContainer {
+        background-color: #f0e0ff;
+        height: 700px;
         display: flex;
-        text-align: left;
         align-items: center;
-        flex-wrap: wrap;
+        @media (max-width: 841px) {
+            height: auto;
+            padding: 20px 0px;
+        }
+        .carouselItemContainer {
+            display: flex;
+            text-align: left;
+            align-items: center;
+            flex-wrap: wrap;
 
-        .contentStyle {
-            width: 50%;
+            .contentStyle {
+                width: 50%;
 
-            h1 {
-                font-size: 24px;
-                font-weight: 500;
-            }
-            p {
-                color: #010101;
-                font-size: 72px;
-                line-height: 97px;
-                margin: 6px 0 37px;
-            }
-            .btnStyle {
-                border: 1px solid #010101;
-                border-radius: 0px;
-                color: #010101;
-                padding: 15px 25px;
-                &:hover {
-                    background-color: #a749ff;
-                    border-color: #a749ff;
-                    color: #fff;
+                h1 {
+                    font-size: 24px;
+                    font-weight: 500;
                 }
-            }
-            @media (max-width: 1060px) {
                 p {
-                    font-size: 55px;
-                    line-height: 77px;
+                    color: #010101;
+                    font-size: 72px;
+                    line-height: 97px;
+                    margin: 6px 0 37px;
+                }
+                .btnStyle {
+                    border: 1px solid #010101;
+                    border-radius: 0px;
+                    color: #010101;
+                    padding: 15px 25px;
+                    &:hover {
+                        background-color: #a749ff;
+                        border-color: #a749ff;
+                        color: #fff;
+                    }
+                }
+                @media (max-width: 1060px) {
+                    p {
+                        font-size: 55px;
+                        line-height: 77px;
+                    }
+                }
+                @media (max-width: 846px) {
+                    width: 100%;
+                    text-align: center;
                 }
             }
-            @media (max-width: 846px) {
-                width: 100%;
-                text-align: center;
+            .pngContainer {
+                width: 50%;
+                @media (max-width: 846px) {
+                    width: 100%;
+                }
             }
         }
-        .pngContainer {
-            width: 50%;
-            @media (max-width: 846px) {
+    }
+
+    .servicesContainer {
+        display: flex;
+        padding: 50px 0px;
+        flex-wrap: wrap;
+
+        .ServicesItemStyle {
+            width: 25%;
+            display: flex;
+            align-items: center;
+            text-align: left;
+
+            svg {
+                height: 60px;
+                width: 60px;
+                transition: all ease 1s;
+                &:hover {
+                    height: 70px;
+                    width: 70px;
+                    transition: all ease-in-out 1s;
+                    transform: rotate(360deg);
+                }
+            }
+            h1 {
+                font-size: 18px;
+                margin: 0 0 5px;
+                line-height: 18px;
+            }
+            h2 {
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 24px;
+                color: #666;
+                margin: 0;
+            }
+            @media (max-width: 976px) {
+                width: 50%;
+            }
+            @media (max-width: 520px) {
                 width: 100%;
+            }
+        }
+    }
+    .dealTitle {
+        font-size: 30px;
+        font-weight: 600;
+        @media (max-width: 450px) {
+            font-size: 25px;
+        }
+    }
+    .dealsContainer {
+        display: flex;
+        padding: 40px 0px;
+        justify-content: center;
+        flex-wrap: wrap;
+        font-weight: 600;
+        h2 {
+            font-size: 18px;
+            margin: 0;
+            transition: all 0.3s ease 0s;
+            cursor: pointer;
+            padding: 10px 15px;
+        }
+    }
+    .productMainContainer {
+        display: flex;
+        margin-bottom: 50px;
+        flex-wrap: wrap;
+
+        .productContainer {
+            transition: all 0.3s ease 0s;
+            width: 25%;
+
+            .productInnerContainer {
+                padding: 10px;
+                .productImg {
+                    .frontImg {
+                        height: 350px;
+                        width: 100%;
+                        object-fit: cover;
+                        display: block;
+                    }
+                    .backImg {
+                        height: 350px;
+                        width: 100%;
+                        object-fit: cover;
+                        display: none;
+                    }
+                    &:hover {
+                        cursor: pointer;
+                        .frontImg {
+                            display: none;
+                        }
+                        .backImg {
+                            display: block;
+                        }
+                    }
+                }
+
+                .productTitle {
+                    font-size: 16px;
+                    font-weight: 500;
+                    color: black;
+                    cursor: pointer;
+                    line-height: 44px;
+                    &:hover {
+                        color: #a749ff;
+                    }
+                }
+                .productPrice {
+                    font-size: 15px;
+                    font-style: normal;
+                    line-height: 24px;
+                }
             }
         }
     }
